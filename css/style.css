@@ -2842,3 +2842,252 @@ a {
         flex-shrink: 0;
     }
 }
+
+/* ==========================================
+   FOOTER SECTION
+========================================== */
+
+.site-footer {
+    position: relative;
+    padding: 75px 7% 25px;
+    background: #101312;
+    color: #E9E0D0;
+    overflow: hidden;
+}
+
+/* FOOTER MAIN CONTENT */
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+/* BRAND */
+
+.footer-logo {
+    display: inline-block;
+    color: #E9E0D0;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo span {
+    color: #C9A66B;
+}
+
+.footer-logo:hover {
+    transform: translateY(-4px);
+}
+
+.footer-tagline {
+    max-width: 350px;
+    margin-top: 18px;
+    color: #aaa99f;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+/* CONTACT AREA */
+
+.footer-contact {
+    padding-left: 30px;
+}
+
+.footer-label {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #C9A66B;
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+.footer-contact h3 {
+    margin-bottom: 28px;
+    color: #E9E0D0;
+    font-family: Georgia, serif;
+    font-size: clamp(25px, 3vw, 36px);
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.footer-contact h3 span {
+    color: #C9A66B;
+}
+
+/* SOCIAL AND EMAIL LINKS */
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+.footer-links a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 7px;
+    color: #E9E0D0;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a span {
+    color: #C9A66B;
+    transition: transform 0.3s ease;
+}
+
+.footer-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: #C9A66B;
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #C9A66B;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+.footer-links a:hover span {
+    transform: translate(3px, -3px);
+}
+
+/* DIVIDER */
+
+.footer-divider {
+    max-width: 1400px;
+    height: 1px;
+    margin: 65px auto 22px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(201, 166, 107, 0.55),
+        transparent
+    );
+}
+
+/* FOOTER BOTTOM */
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    color: #888c84;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.footer-back-home {
+    color: #C9A66B;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    transition: letter-spacing 0.3s ease;
+}
+
+.footer-back-home:hover {
+    letter-spacing: 2.5px;
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+
+    .site-footer {
+        padding: 65px 6% 25px;
+    }
+
+    .footer-content {
+        gap: 40px;
+    }
+
+    .footer-contact {
+        padding-left: 0;
+    }
+
+    .footer-links {
+        gap: 20px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .site-footer {
+        padding: 55px 24px 25px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 38px;
+    }
+
+    .footer-logo {
+        font-size: 33px;
+    }
+
+    .footer-tagline {
+        font-size: 15px;
+    }
+
+    .footer-contact h3 {
+        font-size: 27px;
+    }
+
+    .footer-links {
+        gap: 22px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .footer-bottom p {
+        font-size: 11px;
+    }
+
+}
+
+/* ACCESSIBILITY: REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .footer-logo,
+    .footer-links a,
+    .footer-links a span,
+    .footer-links a::after,
+    .footer-back-home {
+        transition: none;
+    }
+
+}
