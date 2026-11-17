@@ -383,3 +383,242 @@ a {
         display: none;
     }
 }
+
+/* =================================
+   BEYOND WORK SECTION
+   ================================= */
+
+.interests-section {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 100px var(--page-padding);
+}
+
+/* HEADING */
+
+.interests-heading {
+    max-width: 620px;
+    margin-bottom: 48px;
+}
+
+.interests-eyebrow {
+    color: var(--color-primary);
+    font-size: 10px;
+    letter-spacing: 2.2px;
+    font-weight: 600;
+}
+
+.interests-heading h2 {
+    margin-top: 17px;
+    color: var(--color-text);
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 46px);
+    font-weight: 400;
+}
+
+.interests-heading h2 span {
+    color: var(--color-primary);
+    font-style: italic;
+}
+
+.interests-heading > p {
+    max-width: 480px;
+    margin-top: 14px;
+    color: var(--color-muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* GRID */
+
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 38px 30px;
+}
+
+.interest-card {
+    min-width: 0;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    transition: border-color 0.35s ease, transform 0.35s ease;
+}
+
+.interest-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+}
+
+
+/* IMAGE */
+
+.interest-image-wrap {
+    position: relative;
+    height: 270px;
+    overflow: hidden;
+    background: var(--color-surface);
+}
+
+.interest-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.65s ease;
+}
+
+.interest-card:hover .interest-image {
+    transform: scale(1.045);
+}
+
+.interest-number {
+    position: absolute;
+    top: 15px;
+    left: 17px;
+    color: var(--color-text);
+    background: rgba(16, 19, 18, 0.78);
+    padding: 7px 11px;
+    font-family: var(--font-heading);
+    font-size: 13px;
+}
+
+
+/* DESCRIPTION */
+
+.interest-content {
+    padding: 24px 25px 27px;
+}
+
+.interest-category {
+    color: var(--color-primary);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+}
+
+.interest-content h3 {
+    margin-top: 11px;
+    margin-bottom: 10px;
+    color: var(--color-text);
+    font-family: var(--font-heading);
+    font-size: 23px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.interest-card:hover .interest-content h3 {
+    color: var(--color-primary);
+}
+
+.interest-content p {
+    max-width: 480px;
+    color: var(--color-muted);
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+
+/* CLOSING */
+
+.interests-closing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 55px;
+}
+
+.interests-closing span {
+    width: 45px;
+    height: 1px;
+    background: var(--color-primary);
+}
+
+.interests-closing p {
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-style: italic;
+    text-align: center;
+}
+
+
+/* TABLET */
+
+@media (max-width: 850px) {
+
+    .interests-section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .interests-grid {
+        gap: 25px 18px;
+    }
+
+    .interest-image-wrap {
+        height: 230px;
+    }
+
+    .interest-content {
+        padding: 20px;
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .interests-section {
+        padding: 75px 22px;
+    }
+
+    .interests-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .interest-image-wrap {
+        height: 240px;
+    }
+
+    .interest-content {
+        padding: 20px;
+    }
+
+    .interests-closing {
+        gap: 10px;
+    }
+
+    .interests-closing span {
+        width: 22px;
+        flex-shrink: 0;
+    }
+
+    .interests-closing p {
+        font-size: 15px;
+    }
+}
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .interest-card,
+    .interest-image,
+    .interest-content h3 {
+        transition: none;
+    }
+
+    .interest-card:hover {
+        transform: none;
+    }
+
+    .interest-card:hover .interest-image {
+        transform: none;
+    }
+}
