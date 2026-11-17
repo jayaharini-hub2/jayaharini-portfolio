@@ -18,20 +18,49 @@
 --page-padding: clamp(22px, 5vw, 75px);
 }
 */
+
 /* =================================
-   DARK MODE THEME
+   DARK THEME (DEFAULT)
 ================================= */
 
-:root {
-    --color-background: #080B0A;
-    --color-surface: #141A17;
-    --color-primary: #D6B36A;
-    --color-text: #F4F1E9;
-    --color-muted: #A6AAA2;
+:root,
+html[data-theme="dark"] {
+    --color-background: #101312;
+    --color-surface: #1b211e;
+    --color-primary: #c9a66b;
+    --color-text: #f4f1e9;
+    --color-muted: #aaa99f;
     --color-border: rgba(244, 241, 233, 0.15);
 
     --font-heading: Georgia, serif;
     --font-body: Arial, sans-serif;
 
     --page-padding: clamp(24px, 6vw, 90px);
+}
+
+/* =================================
+   WARM TONES THEME
+================================= */
+
+html[data-theme="warm"] {
+    --color-background: #F4EBDD;
+    --color-surface: #E9DCC9;
+    --color-primary: #A66A3F;
+    --color-text: #30251F;
+    --color-muted: #76675B;
+    --color-border: rgba(48, 37, 31, 0.18);
+}
+
+/* =================================
+   SMOOTH THEME TRANSITION
+================================= */
+
+body,
+.site-header,
+.site-footer,
+section {
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease,
+        border-color 0.4s ease;
 }
