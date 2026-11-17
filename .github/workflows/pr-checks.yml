@@ -1,0 +1,107 @@
+
+name: Pull Request Quality Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  pr-validation:
+    name: Validate Pull Request
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check HTML title tags
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          import sys
+
+          class TitleChecker(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.has_title = False
+
+              def handle_starttag(self, tag, attrs):
+                  if tag.lower() == "title":
+                      self.has_title = True
+
+          failed = False
+
+          for file in Path(".").rglob("*.html"):
+              if ".git" in file.parts:
+                  continue
+
+              checker = TitleChecker()
+              checker.feed(file.read_text(encoding="utf-8"))
+
+              if not checker.has_title:
+                  print(f"Missing title tag: {file}")
+                  failed = True
+
+          if failed:
+              sys.exit(1)
+
+          print("All HTML files contain title tags.")
+          PY
+
+      - name: Check image alt attributes
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          import sys
+
+          class ImageChecker(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.errors = []
+
+              def handle_starttag(self, tag, attrs):
+                  if tag.lower() == "img":
+                      attributes = dict(attrs)
+                      if "alt" not in attributes:
+                          self.errors.append("Image missing alt attribute")
+
+          failed = False
+
+          for file in Path(".").rglob("*.html"):
+              if ".git" in file.parts:
+                  continue
+
+              checker = ImageChecker()
+              checker.feed(file.read_text(encoding="utf-8"))
+
+              for error in checker.errors:
+                  print(f"{file}: {error}")
+                  failed = True
+
+          if failed:
+              sys.exit(1)
+
+          print("All images have alt attributes.")
+          PY
+
+      - name: Check for console.log statements
+        run: |
+          if grep -rn --include="*.js" "console\.log" js/; then
+            echo "Remove console.log statements before merging."
+            exit 1
+          else
+            echo "No console.log statements found."
+          fi
+
+      - name: All checks passed
+        run: echo "All pull request quality checks passed!"
