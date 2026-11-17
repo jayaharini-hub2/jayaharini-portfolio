@@ -308,3 +308,62 @@ if ("IntersectionObserver" in window) {
     });
 
 }
+
+
+/* =================================
+   DARK / WARM THEME SWITCHER
+================================= */
+
+const themeToggle = document.getElementById("themeToggle");
+
+if (themeToggle) {
+
+    const savedTheme = localStorage.getItem("portfolioTheme");
+
+    const initialTheme =
+        savedTheme === "warm" ? "warm" : "dark";
+
+    document.documentElement.setAttribute(
+        "data-theme",
+        initialTheme
+    );
+
+    function updateThemeButton(theme) {
+
+        const themeIcon = themeToggle.querySelector(".theme-icon");
+        const themeText = themeToggle.querySelector(".theme-text");
+
+        if (theme === "dark") {
+            themeIcon.textContent = "☀";
+            themeText.textContent = "Warm Theme";
+            themeToggle.setAttribute("aria-label", "Switch to warm theme");
+            themeToggle.setAttribute("aria-pressed", "false");
+        } else {
+            themeIcon.textContent = "☾";
+            themeText.textContent = "Dark Theme";
+            themeToggle.setAttribute("aria-label", "Switch to dark theme");
+            themeToggle.setAttribute("aria-pressed", "true");
+        }
+    }
+
+    updateThemeButton(initialTheme);
+
+    themeToggle.addEventListener("click", function () {
+
+        const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+
+        const newTheme =
+            currentTheme === "dark" ? "warm" : "dark";
+
+        document.documentElement.setAttribute(
+            "data-theme",
+            newTheme
+        );
+
+        localStorage.setItem("portfolioTheme", newTheme);
+
+        updateThemeButton(newTheme);
+
+    });
+}

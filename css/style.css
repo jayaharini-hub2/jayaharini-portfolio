@@ -3330,3 +3330,330 @@ a {
     }
 
 }
+
+
+/* =================================
+   THEME SWITCHER BUTTON
+================================= */
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px 15px;
+
+    border: 1px solid var(--color-primary);
+    border-radius: 30px;
+
+    background: transparent;
+    color: var(--color-primary);
+
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+    white-space: nowrap;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--color-primary);
+    color: var(--color-background);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 18px rgba(201, 166, 107, 0.2);
+}
+
+.theme-icon {
+    font-size: 16px;
+    transition: transform 0.4s ease;
+}
+
+.theme-toggle:hover .theme-icon {
+    transform: rotate(35deg);
+}
+
+@media (max-width: 650px) {
+    .theme-toggle {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+}
+
+
+/* ==========================================
+   WARM THEME - PROFESSIONAL JOURNEY
+========================================== */
+
+html[data-theme="warm"] .journey-section {
+    background: var(--color-background);
+    color: var(--color-text);
+}
+
+html[data-theme="warm"] .journey-heading h2,
+html[data-theme="warm"] .journey-card-content h3 {
+    color: var(--color-text);
+}
+
+html[data-theme="warm"] .journey-subtitle,
+html[data-theme="warm"] .journey-description,
+html[data-theme="warm"] .highlight-label {
+    color: var(--color-muted);
+}
+
+html[data-theme="warm"] .journey-timeline::before {
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--color-primary) 8%,
+        var(--color-primary) 90%,
+        transparent
+    );
+}
+
+html[data-theme="warm"] .journey-card {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+}
+
+html[data-theme="warm"] .journey-card:hover {
+    background: #E5D5BE;
+    border-color: var(--color-primary);
+}
+
+html[data-theme="warm"] .journey-card::before {
+    background: var(--color-background);
+    border-color: var(--color-primary);
+}
+
+html[data-theme="warm"] .journey-card:hover::before {
+    background: var(--color-primary);
+}
+
+html[data-theme="warm"] .journey-card-content h4,
+html[data-theme="warm"] .journey-institution,
+html[data-theme="warm"] .journey-highlight .highlight-value,
+html[data-theme="warm"] .journey-current-status,
+html[data-theme="warm"] .journey-ending p {
+    color: var(--color-primary);
+}
+
+html[data-theme="warm"] .journey-institution::after,
+html[data-theme="warm"] .journey-ending span {
+    background: var(--color-primary);
+}
+
+html[data-theme="warm"] .journey-highlight,
+html[data-theme="warm"] .journey-tags span {
+    background: rgba(166, 106, 63, 0.09);
+    border-color: var(--color-border);
+}
+
+html[data-theme="warm"] .journey-tags span {
+    color: var(--color-primary);
+}
+
+html[data-theme="warm"] .journey-card-side {
+    border-color: var(--color-border);
+}
+
+html[data-theme="warm"] .side-caption {
+    color: var(--color-muted);
+}
+
+html[data-theme="warm"] .side-number {
+    color: var(--color-primary);
+}
+
+html[data-theme="warm"] .status-dot {
+    background: var(--color-primary);
+}
+
+
+/* ==========================================
+   WARM THEME - FAMILY
+========================================== */
+
+html[data-theme="warm"] .family-section {
+    background: var(--color-background);
+    color: var(--color-text);
+}
+
+html[data-theme="warm"] .family-heading h2,
+html[data-theme="warm"] .family-info h3 {
+    color: var(--color-text);
+}
+
+html[data-theme="warm"] .family-heading p,
+html[data-theme="warm"] .family-info p {
+    color: var(--color-muted);
+}
+
+html[data-theme="warm"] .family-member {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+}
+
+html[data-theme="warm"] .family-member:hover {
+    border-color: var(--color-primary);
+}
+
+html[data-theme="warm"] .family-image {
+    background: var(--color-surface);
+}
+
+html[data-theme="warm"] .family-number {
+    background: rgba(48, 37, 31, 0.82);
+    color: #F4EBDD;
+}
+
+html[data-theme="warm"] .family-member:hover .family-info h3 {
+    color: var(--color-primary);
+}
+
+html[data-theme="warm"] .family-member:hover .family-info p {
+    color: var(--color-text);
+}
+
+html[data-theme="warm"] .family-footer p,
+html[data-theme="warm"] .family-footer span {
+    color: var(--color-primary);
+    background-color: var(--color-primary);
+}
+
+
+/* ==========================================
+   WARM THEME - HOBBIES
+========================================== */
+
+html[data-theme="warm"] .hobbies-section {
+    background: var(--color-background);
+    color: var(--color-text);
+}
+
+html[data-theme="warm"] .hobbies-heading h2,
+html[data-theme="warm"] .hobby-content h3 {
+    color: var(--color-text);
+}
+
+html[data-theme="warm"] .hobbies-heading p,
+html[data-theme="warm"] .hobby-content p {
+    color: var(--color-muted);
+}
+
+html[data-theme="warm"] .hobby-item {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+}
+
+html[data-theme="warm"] .hobby-item:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 15px 35px rgba(48, 37, 31, 0.12);
+}
+
+html[data-theme="warm"] .hobby-item:hover .hobby-content h3 {
+    color: var(--color-primary);
+}
+
+html[data-theme="warm"] .hobby-item:hover .hobby-content p {
+    color: var(--color-text);
+}
+
+html[data-theme="warm"] .hobby-decoration {
+    color: rgba(166, 106, 63, 0.09);
+}
+
+html[data-theme="warm"] .hobby-item:hover .hobby-decoration {
+    color: rgba(166, 106, 63, 0.17);
+}
+
+html[data-theme="warm"] .hobbies-footer p,
+html[data-theme="warm"] .hobbies-footer span {
+    color: var(--color-primary);
+    background-color: var(--color-primary);
+}
+
+
+/* ==========================================
+   WARM THEME - FOOTER / CONTACT
+========================================== */
+
+html[data-theme="warm"] .site-footer {
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+html[data-theme="warm"] .footer-logo,
+html[data-theme="warm"] .footer-contact h3,
+html[data-theme="warm"] .footer-links a {
+    color: var(--color-text);
+}
+
+html[data-theme="warm"] .footer-tagline,
+html[data-theme="warm"] .footer-bottom p {
+    color: var(--color-muted);
+}
+
+html[data-theme="warm"] .footer-divider {
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--color-primary),
+        transparent
+    );
+}
+
+html[data-theme="warm"] .footer-links a:hover,
+html[data-theme="warm"] .footer-back-home {
+    color: var(--color-primary);
+}
+
+
+/* ==========================================
+   WARM THEME - NAVIGATION
+========================================== */
+
+html[data-theme="warm"] .site-header {
+    background: rgba(244, 235, 221, 0.95);
+    border-bottom-color: var(--color-border);
+}
+
+html[data-theme="warm"] .logo,
+html[data-theme="warm"] .nav-links a {
+    color: var(--color-text);
+}
+
+html[data-theme="warm"] .nav-links a:hover,
+html[data-theme="warm"] .nav-links a.active {
+    color: var(--color-primary);
+}
+
+
+/* ==========================================
+   WARM THEME - CHAPTER INDICATOR
+========================================== */
+
+html[data-theme="warm"] .chapter-indicator {
+    background: rgba(244, 235, 221, 0.96);
+    border-color: var(--color-border);
+    box-shadow: 0 8px 30px rgba(48, 37, 31, 0.12);
+}
+
+html[data-theme="warm"] .chapter-name {
+    color: var(--color-text);
+}
+
+html[data-theme="warm"] .chapter-small-label {
+    color: var(--color-muted);
+}
+
+html[data-theme="warm"] .chapter-divider {
+    background: var(--color-border);
+}
