@@ -43,6 +43,7 @@ jobs:
         run: htmlhint "**/*.html"
 
   
+  c
   css-validation:
     name: Validate CSS
     runs-on: ubuntu-latest
@@ -57,7 +58,7 @@ jobs:
           node-version: '22'
 
       - name: Install Stylelint
-        run: npm install --global stylelint stylelint-config-standard
+        run: npm install --no-save stylelint stylelint-config-standard
 
       - name: Create Stylelint configuration
         run: |
@@ -74,4 +75,4 @@ jobs:
           }' > .stylelintrc.json
 
       - name: Run Stylelint
-        run: stylelint "css/**/*.css"
+        run: npx stylelint "css/**/*.css"
