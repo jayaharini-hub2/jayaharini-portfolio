@@ -15,5 +15,5 @@
     --font-body: Arial, Helvetica, sans-serif;
 
     --container-width: 1200px;
-    --page-padding: 7%;
+--page-padding: clamp(22px, 5vw, 75px);
 }

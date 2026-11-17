@@ -73,6 +73,7 @@ a {
     margin-left: 8px;
 }
 
+
 /* =================================
    HERO SECTION
    ================================= */
@@ -82,13 +83,14 @@ a {
     min-height: 100svh;
 
     max-width: 1600px;
-    margin: auto;
-    padding: 130px var(--page-padding) 100px;
+    margin: 0 auto;
+
+    padding: 105px clamp(25px, 6vw, 85px) 75px;
 
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
     align-items: center;
-    gap: 60px;
+    gap: clamp(25px, 4vw, 55px);
 
     position: relative;
     overflow: hidden;
@@ -108,43 +110,37 @@ a {
 .hero-content {
     position: relative;
     z-index: 2;
-
+    min-width: 0;
     animation: hero-enter 1s ease both;
 }
 
 .hero-label {
     color: var(--color-primary);
     font-size: 11px;
-    letter-spacing: 4px;
-    margin-bottom: 30px;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
 }
 
 .hero h1 {
     font-family: var(--font-heading);
-    font-size: clamp(45px, 6vw, 82px);
+    font-size: clamp(42px, 5.2vw, 72px);
     line-height: 1.12;
     font-weight: normal;
     letter-spacing: -2px;
+    overflow-wrap: break-word;
 }
 
 .hero h1 span {
     color: var(--color-primary);
 }
 
-.hero-role {
-    margin-top: 25px;
-    color: var(--color-muted);
-    font-size: 17px;
-    letter-spacing: 2px;
-}
-
 .hero-tagline {
-    max-width: 430px;
-    margin-top: 25px;
+    max-width: 420px;
+    margin-top: 23px;
 
     color: var(--color-muted);
     font-family: var(--font-heading);
-    font-size: 18px;
+    font-size: clamp(15px, 1.4vw, 18px);
     font-style: italic;
     line-height: 1.7;
 }
@@ -156,15 +152,15 @@ a {
 .hero-button {
     display: inline-flex;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
 
-    margin-top: 40px;
-    padding: 16px 24px;
+    margin-top: 30px;
+    padding: 14px 22px;
 
     background: var(--color-primary);
     color: #101312;
 
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
     letter-spacing: 1px;
 
@@ -183,69 +179,91 @@ a {
 }
 
 /* =================================
-   PROFILE PHOTO PLACEHOLDER
+   HERO PHOTO — TRANSPARENT STICKER
    ================================= */
 
 .hero-visual {
     position: relative;
+    min-width: 0;
+
     display: flex;
     justify-content: center;
+    align-items: center;
 
     animation: photo-enter 1.2s ease both;
 }
 
 .photo-frame {
-    width: min(100%, 390px);
-}
-
-.photo-placeholder {
-    min-height: 460px;
-
+    width: 100%;
+    max-width: 440px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.hero-image {
+    display: flex;
     justify-content: center;
-    gap: 15px;
+    align-items: center;
 
-    border: 1px solid var(--color-border);
-
-    background:
-        linear-gradient(
-            145deg,
-            #303a34,
-            #1b211e 65%
-        );
+    width: 100%;
+    background: transparent;
 }
 
-.photo-placeholder span {
-    font-family: var(--font-heading);
-    font-size: 100px;
-    color: var(--color-primary);
+.profile-sticker {
+    display: block;
+    width: 105%;
+    max-width: 480px;
+    max-height: 72svh;
+    height: auto;
+    object-fit: contain;
+    background: transparent;
+    transform: translateY(-20px);
+
+    filter: drop-shadow(
+        0 12px 25px rgba(201, 166, 107, 0.16)
+    );
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
 }
 
-.photo-placeholder p {
-    color: var(--color-muted);
-    font-size: 10px;
-    letter-spacing: 3px;
+.profile-sticker:hover {
+    transform: translateY(-28px) scale(1.02);
+
+    filter: drop-shadow(
+        0 18px 30px rgba(201, 166, 107, 0.28)
+    );
 }
+
+/* =================================
+   PHOTO CAPTION
+   ================================= */
 
 .photo-caption {
-    margin-top: 18px;
+    margin-top: -5px;
+
     color: var(--color-muted);
     font-family: var(--font-heading);
-    font-size: 15px;
+    font-size: 14px;
     font-style: italic;
     text-align: center;
+    line-height: 1.6;
 }
+
+/* =================================
+   HERO DECORATION
+   ================================= */
 
 .visual-decoration {
     position: absolute;
-    right: -30px;
-    bottom: 70px;
+    right: 0;
+    bottom: 25%;
 
     color: var(--color-primary);
-    font-size: 10px;
-    letter-spacing: 3px;
+    font-size: 9px;
+    letter-spacing: 2.5px;
 
     writing-mode: vertical-rl;
 }
@@ -256,20 +274,20 @@ a {
 
 .hero-bottom {
     position: absolute;
-    bottom: 30px;
-    left: var(--page-padding);
+    bottom: 22px;
+    left: clamp(25px, 6vw, 85px);
 
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 13px;
 
     color: var(--color-muted);
     font-size: 9px;
-    letter-spacing: 3px;
+    letter-spacing: 2.5px;
 }
 
 .scroll-line {
-    width: 65px;
+    width: 55px;
     height: 1px;
     background: var(--color-primary);
 }
@@ -281,7 +299,7 @@ a {
 @keyframes hero-enter {
     from {
         opacity: 0;
-        transform: translateY(25px);
+        transform: translateY(20px);
     }
 
     to {
@@ -293,7 +311,7 @@ a {
 @keyframes photo-enter {
     from {
         opacity: 0;
-        transform: translateX(25px);
+        transform: translateX(20px);
     }
 
     to {
@@ -303,16 +321,131 @@ a {
 }
 
 /* =================================
+   TABLET RESPONSIVE
+   ================================= */
+
+@media (max-width: 850px) {
+
+    .hero {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+        gap: 20px;
+
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 5.5vw, 55px);
+    }
+
+    .profile-sticker {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .visual-decoration {
+        right: -5px;
+    }
+
+    .hero-bottom {
+        left: 5%;
+    }
+}
+
+/* =================================
+   MOBILE RESPONSIVE
+   ================================= */
+
+@media (max-width: 650px) {
+
+    .navbar {
+        padding: 22px 20px;
+    }
+
+    .logo {
+        font-size: 29px;
+    }
+
+    .hero {
+        min-height: 100svh;
+
+        grid-template-columns: 1fr;
+        gap: 25px;
+
+        padding: 115px 22px 80px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-label {
+        font-size: 9px;
+        letter-spacing: 2.5px;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 9vw, 52px);
+        letter-spacing: -1px;
+    }
+
+    .hero-tagline {
+        margin: 20px auto 0;
+        font-size: 15px;
+    }
+
+    .hero-button {
+        margin-top: 24px;
+    }
+
+    .hero-visual {
+        width: 100%;
+    }
+
+    .photo-frame {
+        max-width: 300px;
+    }
+
+    .profile-sticker {
+        width: 75%;
+        max-width: 250px;
+        max-height: 40svh;
+        transform: translateY(-10px);
+    }
+
+    .profile-sticker:hover {
+        transform: translateY(-14px) scale(1.02);
+    }
+
+    .photo-caption {
+        font-size: 12px;
+    }
+
+    .visual-decoration {
+        display: none;
+    }
+
+    .hero-bottom {
+        left: 22px;
+        bottom: 20px;
+        font-size: 8px;
+    }
+}
+
+/* =================================
    ACCESSIBILITY: REDUCED MOTION
    ================================= */
 
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
+
+    .hero-content,
+    .hero-visual {
+        animation: none;
+    }
+
+    .hero *,
+    .hero *::before,
+    .hero *::after {
         transition-duration: 0.01ms !important;
     }
 }
@@ -383,3 +516,681 @@ a {
         display: none;
     }
 }
+
+/* ==========================================
+   ABOUT ME SECTION
+   Theme: Threads of My Journey
+========================================== */
+
+.about-section {
+    position: relative;
+    padding: 85px 8%;
+    background: #101312;
+    color: #E9E0D0;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+
+/* ==========================================
+   SECTION HEADING
+========================================== */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-label {
+    color: #C9A66B;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 13px;
+}
+
+.section-heading h2 {
+    color: #E9E0D0;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.35s ease;
+}
+
+.section-heading h2:hover {
+    color: #D9B779;
+}
+
+.heading-line {
+    display: block;
+    width: 45px;
+    height: 2px;
+    background: #C9A66B;
+    margin: 18px auto 0;
+    transition: width 0.4s ease;
+}
+
+.section-heading:hover .heading-line {
+    width: 85px;
+}
+
+
+/* ==========================================
+   MAIN CONTENT LAYOUT
+========================================== */
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 65px;
+
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+/* ==========================================
+   PERSONAL INTRODUCTION
+========================================== */
+
+.about-text {
+    max-width: 580px;
+}
+
+.about-subtitle {
+    display: inline-block;
+    color: #C9A66B;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.about-text h3 {
+    color: #E9E0D0;
+    font-size: 27px;
+    font-weight: 500;
+    margin-bottom: 22px;
+    transition: transform 0.3s ease;
+}
+
+.about-text h3:hover {
+    transform: translateX(4px);
+}
+
+.about-name {
+    color: #C9A66B;
+    font-weight: 600;
+}
+
+.about-text p {
+    color: #B8BDB5;
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 17px;
+    transition: color 0.3s ease;
+}
+
+.about-text p:hover {
+    color: #E9E0D0;
+}
+
+.about-college {
+    color: #D9B779;
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   ACADEMIC HIGHLIGHT
+========================================== */
+
+.about-academic {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    margin-top: 30px;
+    padding: 19px 20px;
+
+    background: #191F1B;
+    border-left: 2px solid #C9A66B;
+    border-radius: 3px;
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.about-academic:hover {
+    transform: translateY(-4px);
+    background: #202721;
+    box-shadow: 0 9px 24px rgba(0, 0, 0, 0.22);
+}
+
+.academic-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+
+    color: #C9A66B;
+    border: 1px solid rgba(201, 166, 107, 0.45);
+    border-radius: 50%;
+
+    transition: transform 0.5s ease;
+}
+
+.about-academic:hover .academic-icon {
+    transform: rotate(90deg);
+}
+
+.academic-label {
+    color: #92998F;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+.academic-details h4 {
+    color: #D9B779;
+    font-size: 23px;
+    font-weight: 500;
+    margin: 5px 0;
+}
+
+.academic-details h4 span {
+    color: #A9ADA7;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.academic-details p {
+    color: #A9ADA7;
+    font-size: 11px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* ==========================================
+   PERSONAL MOTTO
+========================================== */
+
+.about-highlight {
+    position: relative;
+    min-height: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 32px 30px;
+    background: #1B211D;
+
+    border: 1px solid rgba(201, 166, 107, 0.3);
+    border-radius: 4px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.about-highlight:hover {
+    transform: translateY(-6px);
+    border-color: #C9A66B;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.24);
+}
+
+
+/* HIGHLIGHT TOP */
+
+.highlight-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 1;
+}
+
+.highlight-symbol {
+    color: #C9A66B;
+    font-size: 18px;
+
+    transition:
+        transform 0.5s ease,
+        color 0.3s ease;
+}
+
+.about-highlight:hover .highlight-symbol {
+    transform: rotate(90deg);
+    color: #E9C98D;
+}
+
+.highlight-label {
+    color: #C9A66B;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+
+/* QUOTE */
+
+.highlight-quote {
+    position: relative;
+    z-index: 1;
+    padding: 12px 0;
+}
+
+.quote-mark {
+    display: block;
+    color: #C9A66B;
+    font-family: Georgia, serif;
+    font-size: 45px;
+    line-height: 0.8;
+}
+
+.highlight-quote p {
+    color: #E9E0D0;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.65;
+    margin: 10px 0;
+    transition: color 0.3s ease;
+}
+
+.about-highlight:hover .highlight-quote p {
+    color: #E9C98D;
+}
+
+.quote-end {
+    text-align: right;
+}
+
+
+/* HIGHLIGHT FOOTER */
+
+.highlight-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 1;
+}
+
+.footer-line {
+    width: 30px;
+    height: 1px;
+    background: #C9A66B;
+}
+
+.highlight-author {
+    color: #A9ADA7;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+
+/* DECORATIVE SYMBOL */
+
+.highlight-decoration {
+    position: absolute;
+    right: -20px;
+    bottom: -35px;
+
+    color: rgba(201, 166, 107, 0.07);
+    font-size: 150px;
+
+    transition: transform 0.6s ease;
+    pointer-events: none;
+}
+
+.about-highlight:hover .highlight-decoration {
+    transform: rotate(35deg) scale(1.08);
+}
+
+
+/* ==========================================
+   PERSONAL QUALITIES
+========================================== */
+
+.about-qualities {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    max-width: 1100px;
+    margin: 75px auto 0;
+
+    border-top: 1px solid rgba(201, 166, 107, 0.25);
+    border-bottom: 1px solid rgba(201, 166, 107, 0.25);
+}
+
+.quality-item {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    padding: 27px 22px;
+    min-width: 0;
+
+    transition: background 0.35s ease;
+}
+
+.quality-item:not(:last-child) {
+    border-right: 1px solid rgba(201, 166, 107, 0.2);
+}
+
+.quality-item:hover {
+    background: rgba(201, 166, 107, 0.06);
+}
+
+.quality-number {
+    color: #C9A66B;
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding-top: 3px;
+}
+
+.quality-item h4 {
+    color: #E9E0D0;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.quality-item:hover h4 {
+    color: #D9B779;
+}
+
+.quality-item p {
+    color: #A9ADA7;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+   SIGNATURE
+========================================== */
+
+.about-signature {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    margin-top: 55px;
+}
+
+.signature-line {
+    width: 38px;
+    height: 1px;
+    background: rgba(201, 166, 107, 0.5);
+    transition: width 0.35s ease;
+}
+
+.about-signature:hover .signature-line {
+    width: 65px;
+}
+
+.about-signature p {
+    color: #C9A66B;
+    font-size: 11px;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+
+/* ==========================================
+   GOLDEN THREAD DECORATION
+========================================== */
+
+.about-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+    width: 65%;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #C9A66B,
+        transparent
+    );
+
+    animation: goldenThread 9s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes goldenThread {
+    0% {
+        left: -100%;
+    }
+
+    60%, 100% {
+        left: 130%;
+    }
+}
+
+
+/* ==========================================
+   ENTRANCE ANIMATION
+========================================== */
+
+@keyframes aboutReveal {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-heading,
+.about-content,
+.about-qualities,
+.about-signature {
+    animation: aboutReveal 0.8s ease both;
+}
+
+.about-content {
+    animation-delay: 0.15s;
+}
+
+.about-qualities {
+    animation-delay: 0.3s;
+}
+
+.about-signature {
+    animation-delay: 0.4s;
+}
+
+
+/* ==========================================
+   TABLET RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+
+    .about-section {
+        padding: 75px 5%;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr 0.9fr;
+        gap: 35px;
+    }
+
+    .about-highlight {
+        padding: 26px 22px;
+    }
+
+    .highlight-quote p {
+        font-size: 19px;
+    }
+
+    .about-qualities {
+        grid-template-columns: 1fr;
+    }
+
+    .quality-item {
+        padding: 20px;
+    }
+
+    .quality-item:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid rgba(201, 166, 107, 0.2);
+    }
+}
+
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width: 600px) {
+
+    .about-section {
+        padding: 60px 20px;
+    }
+
+    .section-heading {
+        margin-bottom: 40px;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .about-text h3 {
+        font-size: 23px;
+    }
+
+    .about-text p {
+        font-size: 13px;
+    }
+
+    .about-academic {
+        padding: 16px;
+    }
+
+    .about-highlight {
+        min-height: 260px;
+        padding: 25px 23px;
+    }
+
+    .highlight-quote p {
+        font-size: 19px;
+    }
+
+    .about-qualities {
+        margin-top: 50px;
+    }
+
+    .quality-item {
+        padding: 19px 10px;
+    }
+
+    .about-signature {
+        gap: 8px;
+        margin-top: 40px;
+    }
+
+    .signature-line {
+        width: 22px;
+    }
+
+    .about-signature p {
+        font-size: 9px;
+        text-align: center;
+    }
+}
+
+
+/* ==========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .about-section::before,
+    .section-heading,
+    .about-content,
+    .about-qualities,
+    .about-signature {
+        animation: none;
+    }
+
+    .about-section *,
+    .about-section *::before,
+    .about-section *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==========================================
+   ABOUT ME — PERSONAL NOTE
+========================================== */
+
+.about-personal-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    margin-top: 25px;
+    padding: 15px 18px;
+
+    background: rgba(201, 166, 107, 0.06);
+    border-left: 2px solid #C9A66B;
+    border-radius: 2px;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.about-personal-note:hover {
+    background: rgba(201, 166, 107, 0.12);
+    transform: translateX(5px);
+}
+
+.personal-note-icon {
+    color: #C9A66B;
+    font-size: 16px;
+    transition: transform 0.4s ease;
+}
+
+.about-personal-note:hover .personal-note-icon {
+    transform: rotate(90deg);
+}
+
+.about-personal-note p {
+    color: #D9B779;
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 0;
+}
+
