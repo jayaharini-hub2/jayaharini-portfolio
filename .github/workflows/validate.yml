@@ -1,0 +1,62 @@
+
+name: HTML and CSS Validation
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - '**.html'
+      - '**.css'
+      - '.github/workflows/validate.yml'
+
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths:
+      - '**.html'
+      - '**.css'
+      - '.github/workflows/validate.yml'
+
+  workflow_dispatch:
+
+jobs:
+  html-validation:
+    name: Validate HTML
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install HTMLHint
+        run: npm install --global htmlhint
+
+      - name: Run HTMLHint
+        run: htmlhint "**/*.html"
+
+  css-validation:
+    name: Validate CSS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install CSSLint
+        run: npm install --global csslint
+
+      - name: Run CSSLint
+        run: csslint css/
