@@ -1,7 +1,7 @@
 
 /* =================================
    PORTFOLIO THEME VARIABLES
-   ================================= */
+   ================================= 
 
 :root {
     --color-background: #101312;
@@ -16,4 +16,22 @@
 
     --container-width: 1200px;
 --page-padding: clamp(22px, 5vw, 75px);
+}
+*/
+/* =================================
+   DARK MODE THEME
+================================= */
+
+:root {
+    --color-background: #080B0A;
+    --color-surface: #141A17;
+    --color-primary: #D6B36A;
+    --color-text: #F4F1E9;
+    --color-muted: #A6AAA2;
+    --color-border: rgba(244, 241, 233, 0.15);
+
+    --font-heading: Georgia, serif;
+    --font-body: Arial, sans-serif;
+
+    --page-padding: clamp(24px, 6vw, 90px);
 }
