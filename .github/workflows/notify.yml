@@ -1,0 +1,39 @@
+
+name: Deployment Notifications
+
+on:
+  workflow_run:
+    workflows:
+      - Deploy Portfolio to GitHub Pages
+    types:
+      - completed
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    name: Send Deployment Notification
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Notify deployment status
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          DEPLOYMENT_STATUS: ${{ github.event.workflow_run.conclusion || 'Manually triggered' }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          if [ -z "$SLACK_WEBHOOK" ]; then
+            echo "SLACK_WEBHOOK secret is not configured."
+            echo "Skipping Slack notification."
+            exit 0
+          fi
+
+          MESSAGE="Portfolio deployment status: $DEPLOYMENT_STATUS | Repository: $REPOSITORY"
+
+          curl -X POST \
+            -H "Content-type: application/json" \
+            --data "$(jq -n --arg text "$MESSAGE" '{text: $text}')" \
+            "$SLACK_WEBHOOK"
