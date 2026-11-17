@@ -1,0 +1,19 @@
+
+/* =================================
+   PORTFOLIO THEME VARIABLES
+   ================================= */
+
+:root {
+    --color-background: #101312;
+    --color-surface: #1b211e;
+    --color-primary: #c9a66b;
+    --color-text: #f4f1e9;
+    --color-muted: #aaa99f;
+    --color-border: rgba(244, 241, 233, 0.15);
+
+    --font-heading: Georgia, "Times New Roman", serif;
+    --font-body: Arial, Helvetica, sans-serif;
+
+    --container-width: 1200px;
+    --page-padding: 7%;
+}
