@@ -242,7 +242,7 @@ a {
    ================================= */
 
 .photo-caption {
-    margin-top: -5px;
+    margin-top:18px;
 
     color: var(--color-muted);
     font-family: var(--font-heading);
@@ -568,7 +568,17 @@ a {
 
 .interests-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    max-width: 990px;
+    margin: 0 auto;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 420px), 480px)
+    );
+
+    justify-content: center;
+    justify-items: stretch;
     gap: 38px 30px;
 }
 
@@ -680,7 +690,9 @@ a {
 
 /* TABLET */
 
-@media (max-width: 850px) {
+/* TABLET AND SMALL LAPTOP */
+
+@media (max-width: 900px) {
 
     .interests-section {
         padding-top: 80px;
@@ -688,7 +700,15 @@ a {
     }
 
     .interests-grid {
-        gap: 25px 18px;
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 650px;
+        margin: 0 auto;
+        gap: 28px;
+    }
+
+    .interest-card {
+        width: 100%;
+        min-width: 0;
     }
 
     .interest-image-wrap {
@@ -699,7 +719,6 @@ a {
         padding: 20px;
     }
 }
-
 
 /* MOBILE */
 
@@ -3522,9 +3541,13 @@ html[data-theme="warm"] .family-member:hover .family-info p {
     color: var(--color-text);
 }
 
-html[data-theme="warm"] .family-footer p,
-html[data-theme="warm"] .family-footer span {
+/* FAMILY FOOTER - WARM THEME */
+
+html[data-theme="warm"] .family-footer p {
     color: var(--color-primary);
+}
+
+html[data-theme="warm"] .family-footer span {
     background-color: var(--color-primary);
 }
 
@@ -3574,13 +3597,15 @@ html[data-theme="warm"] .hobby-item:hover .hobby-decoration {
     color: rgba(166, 106, 63, 0.17);
 }
 
-html[data-theme="warm"] .hobbies-footer p,
-html[data-theme="warm"] .hobbies-footer span {
+/* HOBBIES FOOTER - WARM THEME */
+
+html[data-theme="warm"] .hobbies-footer p {
     color: var(--color-primary);
-    background-color: var(--color-primary);
 }
 
-
+html[data-theme="warm"] .hobbies-footer span {
+    background-color: var(--color-primary);
+}
 /* ==========================================
    WARM THEME - FOOTER / CONTACT
 ========================================== */
@@ -3656,4 +3681,30 @@ html[data-theme="warm"] .chapter-small-label {
 
 html[data-theme="warm"] .chapter-divider {
     background: var(--color-border);
+}
+
+/* CENTER BEYOND WORK HEADING AND DESCRIPTION */
+
+.interests-heading {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.interests-heading .section-label,
+.interests-heading h2,
+.interests-heading p {
+    text-align: center;
+}
+
+.interests-heading .heading-line {
+    margin-left: auto;
+    margin-right: auto;
+}
+.interests-heading p {
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
