@@ -1,0 +1,44 @@
+
+name: Lighthouse Performance Audit
+
+on:
+  workflow_run:
+    workflows:
+      - Deploy Portfolio to GitHub Pages
+    types:
+      - completed
+
+  schedule:
+    - cron: '0 9 * * 1'
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse-audit:
+    name: Run Lighthouse Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Wait for deployment
+        run: sleep 30
+        if: github.event_name == 'workflow_run'
+
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: https://jayaharini-hub2.github.io/jayaharini-portfolio/
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+      - name: Upload Lighthouse report
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: .lighthouseci
+          retention-days: 30
