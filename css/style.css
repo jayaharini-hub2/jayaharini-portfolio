@@ -755,3 +755,1066 @@ a {
         transform: none;
     }
 }
+
+
+
+/* ==========================================
+   PROFESSIONAL JOURNEY
+========================================== */
+
+.journey-section {
+    position: relative;
+    padding: 90px 24px 85px;
+    background: #101312;
+    color: #E9E0D0;
+    overflow: hidden;
+}
+
+/* ==========================================
+   SECTION HEADING
+========================================== */
+
+.journey-heading {
+    max-width: 700px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.journey-label {
+    margin-bottom: 14px;
+    color: #C9A66B;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.journey-heading h2 {
+    margin-bottom: 15px;
+    color: #E9E0D0;
+    font-size: clamp(34px, 5vw, 48px);
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.journey-subtitle {
+    color: #A9ADA7;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   TIMELINE
+========================================== */
+
+.journey-timeline {
+    position: relative;
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding-left: 55px;
+}
+
+.journey-timeline::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: 35px;
+    left: 17px;
+    width: 1px;
+
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        #C9A66B 8%,
+        #C9A66B 90%,
+        transparent
+    );
+}
+
+/* ==========================================
+   JOURNEY CARDS
+========================================== */
+
+.journey-card {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: minmax(0, 560px) 80px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+
+    width: 100%;
+    min-height: 250px;
+
+    margin-bottom: 28px;
+    padding: 32px 35px;
+
+    background: #191F1B;
+
+    border: 1px solid rgba(201, 166, 107, 0.22);
+    border-radius: 12px;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* Timeline marker */
+
+.journey-card::before {
+    content: "";
+    position: absolute;
+
+    top: 38px;
+    left: -46px;
+
+    width: 14px;
+    height: 14px;
+
+    background: #101312;
+
+    border: 2px solid #C9A66B;
+    border-radius: 50%;
+
+    box-shadow: 0 0 0 5px rgba(201, 166, 107, 0.10);
+
+    transition:
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* Card hover */
+
+.journey-card:hover {
+    transform: translateX(8px);
+
+    border-color: #C9A66B;
+    background: #202721;
+
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.22);
+}
+
+.journey-card:hover::before {
+    background: #C9A66B;
+
+    box-shadow: 0 0 0 7px rgba(201, 166, 107, 0.13);
+}
+
+/* ==========================================
+   CARD CONTENT
+========================================== */
+
+.journey-card-content {
+    min-width: 0;
+    width: 100%;
+    max-width: 560px;
+}
+
+.journey-category {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    color: #C9A66B;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    line-height: 1.6;
+}
+
+.journey-card-content h3 {
+    margin-bottom: 13px;
+
+    color: #E9E0D0;
+
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.journey-card-content h4 {
+    margin-bottom: 7px;
+
+    color: #D8C7A8;
+
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   HIGHLIGHTED COLLEGE AND COMPANY NAMES
+========================================== */
+
+.journey-institution {
+    display: inline-block;
+    position: relative;
+
+    margin: 5px 0 18px;
+    padding-bottom: 8px;
+
+    color: #D9B779;
+
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
+}
+
+.journey-institution::after {
+    content: "";
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 48px;
+    height: 2px;
+
+    background: #C9A66B;
+
+    transition: width 0.35s ease;
+}
+
+.journey-card:hover .journey-institution::after {
+    width: 100%;
+}
+
+/* ==========================================
+   DESCRIPTION
+========================================== */
+
+.journey-description {
+    max-width: 430px;
+
+    margin-bottom: 20px;
+
+    color: #C5C8C1;
+
+    font-size: 14px;
+    line-height: 1.85;
+
+    overflow-wrap: break-word;
+}
+
+/* ==========================================
+   CGPA HIGHLIGHT
+========================================== */
+
+.journey-highlight {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: fit-content;
+
+    padding: 10px 15px;
+
+    background: rgba(201, 166, 107, 0.08);
+
+    border-left: 2px solid #C9A66B;
+}
+
+.highlight-value {
+    color: #D9B779;
+
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.highlight-label {
+    color: #C5C8C1;
+
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+/* ==========================================
+   TECHNOLOGY TAGS
+========================================== */
+
+.journey-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.journey-tags span {
+    padding: 7px 13px;
+
+    color: #D8C7A8;
+
+    background: rgba(201, 166, 107, 0.08);
+
+    border: 1px solid rgba(201, 166, 107, 0.25);
+    border-radius: 30px;
+
+    font-size: 11px;
+    letter-spacing: 0.4px;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.journey-tags span:hover {
+    background: rgba(201, 166, 107, 0.16);
+    border-color: #C9A66B;
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   CURRENT WORK STATUS
+========================================== */
+
+.journey-current-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    width: fit-content;
+
+    margin-top: 8px;
+
+    color: #D9B779;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    background: #C9A66B;
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 10px rgba(201, 166, 107, 0.65);
+}
+
+/* ==========================================
+   CHAPTER NUMBER
+========================================== */
+
+.journey-card-side {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-width: 70px;
+    height: 100%;
+
+    border-left: 1px solid rgba(201, 166, 107, 0.20);
+}
+
+.side-caption {
+    color: #858C83;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.side-number {
+    color: rgba(201, 166, 107, 0.75);
+
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+/* ==========================================
+   JOURNEY ENDING
+========================================== */
+
+.journey-ending {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    margin: 45px auto 0;
+}
+
+.journey-ending span {
+    width: 45px;
+    height: 1px;
+
+    background: rgba(201, 166, 107, 0.45);
+}
+
+.journey-ending p {
+    color: #C9A66B;
+
+    font-size: 12px;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* ==========================================
+   TABLET RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .journey-section {
+        padding: 75px 22px;
+    }
+
+    .journey-heading {
+        margin-bottom: 50px;
+    }
+
+    .journey-timeline {
+        max-width: 650px;
+        padding-left: 42px;
+    }
+
+    .journey-timeline::before {
+        left: 13px;
+    }
+
+    .journey-card {
+        grid-template-columns: minmax(0, 1fr) 65px;
+
+        gap: 18px;
+
+        min-height: 230px;
+
+        padding: 26px 23px;
+    }
+
+    .journey-card::before {
+        left: -36px;
+    }
+
+    .journey-card-content {
+        max-width: 100%;
+    }
+
+    .journey-card-content h3 {
+        font-size: 20px;
+    }
+
+    .journey-institution {
+        font-size: 17px;
+    }
+
+    .journey-description {
+        max-width: 100%;
+    }
+
+    .journey-card-side {
+        min-width: 60px;
+    }
+
+    .side-number {
+        font-size: 32px;
+    }
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width: 520px) {
+
+    .journey-section {
+        padding: 65px 18px;
+    }
+
+    .journey-heading {
+        margin-bottom: 40px;
+    }
+
+    .journey-heading h2 {
+        font-size: 34px;
+    }
+
+    .journey-subtitle {
+        font-size: 13px;
+    }
+
+    .journey-timeline {
+        padding-left: 27px;
+    }
+
+    .journey-timeline::before {
+        left: 8px;
+    }
+
+    .journey-card {
+        grid-template-columns: minmax(0, 1fr);
+
+        gap: 22px;
+
+        min-height: auto;
+
+        padding: 24px 20px;
+        margin-bottom: 22px;
+    }
+
+    .journey-card::before {
+        top: 30px;
+        left: -26px;
+
+        width: 12px;
+        height: 12px;
+    }
+
+    .journey-card-content {
+        max-width: 100%;
+    }
+
+    .journey-card-content h3 {
+        font-size: 19px;
+    }
+
+    .journey-card-content h4 {
+        font-size: 14px;
+    }
+
+    .journey-institution {
+        font-size: 16px;
+    }
+
+    .journey-description {
+        max-width: 100%;
+        font-size: 13px;
+    }
+
+    .journey-card-side {
+        flex-direction: row;
+
+        justify-content: flex-start;
+        gap: 12px;
+
+        min-width: auto;
+        height: auto;
+
+        padding-top: 15px;
+
+        border-left: none;
+        border-top: 1px solid rgba(201, 166, 107, 0.20);
+    }
+
+    .side-number {
+        font-size: 25px;
+    }
+
+    .journey-ending {
+        gap: 10px;
+    }
+
+    .journey-ending span {
+        width: 25px;
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .journey-card,
+    .journey-card::before,
+    .journey-institution::after,
+    .journey-tags span {
+        transition: none;
+    }
+
+    .journey-card:hover,
+    .journey-tags span:hover {
+        transform: none;
+    }
+}
+
+
+/* ==========================================
+   ABOUT ME SECTION
+========================================== */
+
+.about-section {
+    position: relative;
+
+    width: 100%;
+    max-width: var(--container-width);
+
+    margin: 0 auto;
+    padding: 100px var(--page-padding);
+
+    overflow: hidden;
+}
+
+/* ==========================================
+   SECTION HEADING
+========================================== */
+
+.section-heading {
+    margin-bottom: 55px;
+    text-align: center;
+}
+
+.section-label {
+    margin-bottom: 14px;
+
+    color: var(--color-primary);
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.section-heading h2 {
+    display: inline-block;
+
+    position: relative;
+
+    color: var(--color-text);
+
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 500;
+    letter-spacing: -1px;
+
+    transition: color 0.35s ease;
+}
+
+.section-heading h2:hover {
+    color: var(--color-primary);
+}
+
+.heading-line {
+    display: block;
+
+    width: 55px;
+    height: 2px;
+
+    margin: 18px auto 0;
+
+    background: var(--color-primary);
+
+    transition: width 0.4s ease;
+}
+
+.section-heading:hover .heading-line {
+    width: 100px;
+}
+
+/* ==========================================
+   ABOUT CONTENT
+========================================== */
+
+.about-content {
+    display: grid;
+
+    grid-template-columns: 1.15fr 0.85fr;
+
+    align-items: center;
+
+    gap: 65px;
+
+    max-width: 1050px;
+
+    margin: 0 auto;
+}
+
+/* ==========================================
+   ABOUT TEXT
+========================================== */
+
+.about-text {
+    max-width: 570px;
+}
+
+.about-subtitle {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    color: var(--color-primary);
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+.about-text h3 {
+    margin-bottom: 22px;
+
+    color: var(--color-text);
+
+    font-size: 27px;
+    font-weight: 500;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.about-text h3:hover {
+    color: var(--color-primary);
+    transform: translateX(5px);
+}
+
+.about-text p {
+    margin-bottom: 17px;
+
+    color: var(--color-muted);
+
+    font-size: 14px;
+    line-height: 1.9;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.about-text p:hover {
+    color: var(--color-text);
+    transform: translateX(4px);
+}
+
+.about-text .about-personal-note {
+    display: inline-block;
+
+    margin-top: 8px;
+
+    color: var(--color-primary);
+
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* ==========================================
+   LIFE MOTTO HIGHLIGHT
+========================================== */
+
+.about-highlight {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: center;
+
+    min-height: 260px;
+
+    padding: 38px 35px;
+
+    background: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-primary);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.about-highlight:hover {
+    transform: translateY(-7px);
+
+    border-color: var(--color-primary);
+
+    box-shadow: 0 15px 35px rgba(201, 166, 107, 0.10);
+}
+
+.highlight-decoration {
+    align-self: flex-end;
+
+    margin-bottom: 15px;
+
+    color: var(--color-primary);
+
+    font-size: 30px;
+
+    transition: transform 0.5s ease;
+}
+
+.about-highlight:hover .highlight-decoration {
+    transform: rotate(45deg);
+}
+
+.highlight-label {
+    margin-bottom: 20px;
+
+    color: var(--color-primary);
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+.about-highlight blockquote {
+    margin: 0;
+
+    color: var(--color-text);
+
+    font-family: var(--font-heading);
+
+    font-size: clamp(21px, 2.5vw, 28px);
+    line-height: 1.65;
+
+    transition: color 0.35s ease;
+}
+
+.about-highlight blockquote span {
+    display: block;
+
+    margin-top: 12px;
+
+    color: var(--color-primary);
+
+    font-size: 20px;
+    font-family: inherit;
+}
+
+.about-highlight:hover blockquote {
+    color: var(--color-primary);
+}
+
+.highlight-author {
+    margin-top: 22px;
+
+    color: var(--color-muted);
+
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* ==========================================
+   PERSONAL QUALITIES
+========================================== */
+
+.about-qualities {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+
+    max-width: 1050px;
+
+    margin: 75px auto 0;
+}
+
+.quality-item {
+    position: relative;
+
+    padding: 25px 22px;
+
+    background: rgba(27, 33, 30, 0.65);
+
+    border: 1px solid var(--color-border);
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.quality-item:hover {
+    transform: translateY(-6px);
+
+    background: var(--color-surface);
+
+    border-color: var(--color-primary);
+}
+
+.quality-number {
+    display: block;
+
+    margin-bottom: 20px;
+
+    color: var(--color-primary);
+
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.quality-item h4 {
+    margin-bottom: 12px;
+
+    color: var(--color-text);
+
+    font-size: 17px;
+    font-weight: 500;
+
+    transition: color 0.3s ease;
+}
+
+.quality-item:hover h4 {
+    color: var(--color-primary);
+}
+
+.quality-item p {
+    color: var(--color-muted);
+
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   CLOSING SIGNATURE
+========================================== */
+
+.about-signature {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 16px;
+
+    margin: 55px auto 0;
+}
+
+.about-signature span {
+    width: 45px;
+    height: 1px;
+
+    background: rgba(201, 166, 107, 0.5);
+
+    transition: width 0.4s ease;
+}
+
+.about-signature:hover span {
+    width: 75px;
+}
+
+.about-signature p {
+    color: var(--color-primary);
+
+    font-size: 12px;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* ==========================================
+   TABLET RESPONSIVE
+========================================== */
+
+@media (max-width: 850px) {
+
+    .about-section {
+        padding: 80px var(--page-padding);
+    }
+
+    .about-content {
+        gap: 35px;
+    }
+
+    .about-highlight {
+        padding: 28px 24px;
+    }
+
+    .about-qualities {
+        gap: 15px;
+    }
+
+    .quality-item {
+        padding: 22px 17px;
+    }
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width: 600px) {
+
+    .about-section {
+        padding: 65px 22px;
+    }
+
+    .section-heading {
+        margin-bottom: 40px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-text h3 {
+        font-size: 24px;
+    }
+
+    .about-text p {
+        font-size: 13px;
+    }
+
+    .about-highlight {
+        min-height: 220px;
+        padding: 28px 25px;
+    }
+
+    .about-qualities {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-top: 45px;
+    }
+
+    .quality-item {
+        padding: 22px;
+    }
+
+    .quality-number {
+        margin-bottom: 12px;
+    }
+
+    .about-signature {
+        gap: 10px;
+        margin-top: 40px;
+    }
+
+    .about-signature span {
+        width: 25px;
+    }
+
+    .about-signature p {
+        font-size: 11px;
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .section-heading h2,
+    .heading-line,
+    .about-text h3,
+    .about-text p,
+    .about-highlight,
+    .highlight-decoration,
+    .about-highlight blockquote,
+    .quality-item,
+    .quality-item h4,
+    .about-signature span {
+        transition: none;
+    }
+
+    .about-text h3:hover,
+    .about-text p:hover,
+    .about-highlight:hover,
+    .quality-item:hover {
+        transform: none;
+    }
+}
