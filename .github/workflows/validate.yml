@@ -43,7 +43,7 @@ jobs:
         run: htmlhint "**/*.html"
 
   
-  c
+  
   css-validation:
     name: Validate CSS
     runs-on: ubuntu-latest
