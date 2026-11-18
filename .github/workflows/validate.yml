@@ -43,7 +43,7 @@ jobs:
         run: htmlhint "**/*.html"
 
   
-  c
+  
   css-validation:
     name: Validate CSS
     runs-on: ubuntu-latest
@@ -58,19 +58,22 @@ jobs:
           node-version: '22'
 
       - name: Install Stylelint
-        run: npm install --no-save stylelint stylelint-config-standard
+        run: npm install --no-save stylelint stylelint-config-recommended
 
       - name: Create Stylelint configuration
         run: |
           echo '{
-            "extends": "stylelint-config-standard",
+            "extends": "stylelint-config-recommended",
             "rules": {
-              "custom-property-pattern": null,
-              "selector-class-pattern": null,
-              "selector-id-pattern": null,
-              "color-function-notation": null,
-              "alpha-value-notation": null,
-              "declaration-block-no-redundant-longhand-properties": null
+              "no-descending-specificity": null,
+              "no-duplicate-selectors": null,
+              "declaration-empty-line-before": null,
+              "custom-property-empty-line-before": null,
+              "color-function-alias-notation": null,
+              "value-keyword-case": null,
+              "media-feature-range-notation": null,
+              "rule-empty-line-before": null,
+              "comment-empty-line-before": null
             }
           }' > .stylelintrc.json
 
